@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@300;400;600&family=Space+Mono&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary-container": "#f5c842",
+          "on-primary": "#3d2e00",
+          "surface": "#131313",
+          "surface-container-lowest": "#0e0e0e",
+          "surface-container-low": "#1c1b1b",
+          "on-surface": "#e5e2e1",
+          "on-surface-variant": "#9a907b",
+          "error": "#E24B4A",
+          "background": "#131313",
+        },
+        fontFamily: {
+          "headline": ["Manrope"],
+          "body": ["Inter"],
+          "label": ["Space Mono"]
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { background-color: #131313; color: #e5e2e1; font-family: 'Inter', sans-serif; }
+
+  #starfield {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Star shape redondeada 4 puntas */
+  .star-icon {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body class="bg-background text-on-surface">
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 w-full flex justify-between items-center px-12 py-6 h-20 bg-[#131313]/80 backdrop-blur-md z-50 border-b border-white/5">
+  <div class="flex items-center gap-2.5 text-2xl font-headline font-extrabold tracking-tighter text-primary-container uppercase">
+    LUKE
+    <!-- Estrella 4 puntas gruesa y redondeada como la imagen -->
+    <svg class="star-icon" viewBox="0 0 24 24" fill="#f5c842" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C12 2 13.2 9 14.8 10.2C16.4 11.4 22 12 22 12C22 12 16.4 12.6 14.8 13.8C13.2 15 12 22 12 22C12 22 10.8 15 9.2 13.8C7.6 12.6 2 12 2 12C2 12 7.6 11.4 9.2 10.2C10.8 9 12 2 12 2Z"/>
+    </svg>
+  </div>
+  <div class="hidden md:flex items-center gap-10">
+    <a class="text-white/70 font-medium hover:text-[#F5C842] transition-colors font-headline tracking-tight uppercase text-sm" href="#soluciones">Cómo funciona</a>
+    <a class="text-white/70 font-medium hover:text-[#F5C842] transition-colors font-headline tracking-tight uppercase text-sm" href="#competencia">Por qué Luke</a>
+    <a class="text-white/70 font-medium hover:text-[#F5C842] transition-colors font-headline tracking-tight uppercase text-sm" href="#mercado">Mercado</a>
+    <a class="text-white/70 font-medium hover:text-[#F5C842] transition-colors font-headline tracking-tight uppercase text-sm" href="#equipo">Equipo</a>
+  </div>
+  <button class="bg-primary-container text-[#3d2e00] px-6 py-2.5 font-headline font-bold uppercase tracking-tight hover:bg-yellow-300 transition-all text-sm">
+    Hablemos
+  </button>
+</nav>
+
+<!-- HERO -->
+<header class="relative min-h-screen flex flex-col items-center justify-center pt-32 px-6 overflow-hidden">
+  <!-- Cielo estrellado -->
+  <svg style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <circle cx="63.94%" cy="2.50%" r="0.22" fill="rgba(226,221,204,0.57)"/><circle cx="67.67%" cy="89.22%" r="0.32" fill="rgba(245,200,66,0.22)"/><circle cx="21.86%" cy="50.54%" r="0.23" fill="rgba(245,200,66,0.65)"/><circle cx="54.49%" cy="22.04%" r="0.39" fill="rgba(226,221,204,0.20)"/><circle cx="80.58%" cy="69.81%" r="0.20" fill="rgba(226,221,204,0.68)"/><circle cx="33.66%" cy="9.27%" r="0.49" fill="rgba(245,200,66,0.62)"/><circle cx="80.71%" cy="72.97%" r="0.44" fill="rgba(226,221,204,0.39)"/><circle cx="55.20%" cy="82.94%" r="0.41" fill="rgba(226,221,204,0.49)"/><circle cx="70.46%" cy="4.58%" r="0.24" fill="rgba(226,221,204,0.24)"/><circle cx="23.28%" cy="10.10%" r="0.34" fill="rgba(226,221,204,0.38)"/><circle cx="37.02%" cy="20.95%" r="0.43" fill="rgba(226,221,204,0.52)"/><circle cx="60.91%" cy="17.11%" r="0.20" fill="rgba(226,221,204,0.39)"/><circle cx="98.95%" cy="64.00%" r="0.36" fill="rgba(226,221,204,0.62)"/><circle cx="77.60%" cy="22.90%" r="0.28" fill="rgba(245,200,66,0.39)"/><circle cx="21.10%" cy="94.29%" r="0.24" fill="rgba(226,221,204,0.53)"/><circle cx="39.56%" cy="91.45%" r="0.23" fill="rgba(226,221,204,0.32)"/><circle cx="56.14%" cy="26.27%" r="0.42" fill="rgba(226,221,204,0.40)"/><circle cx="21.93%" cy="99.75%" r="0.18" fill="rgba(226,221,204,0.22)"/><circle cx="10.96%" cy="62.74%" r="0.28" fill="rgba(226,221,204,0.23)"/><circle cx="38.16%" cy="99.61%" r="0.44" fill="rgba(226,221,204,0.63)"/><circle cx="1.15%" cy="72.07%" r="0.31" fill="rgba(226,221,204,0.33)"/><circle cx="64.10%" cy="11.16%" r="0.29" fill="rgba(226,221,204,0.68)"/><circle cx="87.59%" cy="26.34%" r="0.20" fill="rgba(226,221,204,0.66)"/><circle cx="87.05%" cy="29.84%" r="0.33" fill="rgba(226,221,204,0.28)"/><circle cx="76.25%" cy="53.94%" r="0.31" fill="rgba(226,221,204,0.20)"/><circle cx="32.42%" cy="1.95%" r="0.41" fill="rgba(226,221,204,0.62)"/><circle cx="30.75%" cy="5.79%" r="0.43" fill="rgba(226,221,204,0.24)"/><circle cx="48.60%" cy="6.92%" r="0.38" fill="rgba(226,221,204,0.26)"/><circle cx="47.53%" cy="54.98%" r="0.41" fill="rgba(226,221,204,0.41)"/><circle cx="21.18%" cy="53.93%" r="0.21" fill="rgba(226,221,204,0.36)"/><circle cx="99.51%" cy="64.99%" r="0.31" fill="rgba(226,221,204,0.26)"/><circle cx="22.47%" cy="33.81%" r="0.22" fill="rgba(226,221,204,0.31)"/><circle cx="7.10%" cy="63.11%" r="0.42" fill="rgba(226,221,204,0.63)"/><circle cx="7.09%" cy="23.80%" r="0.21" fill="rgba(226,221,204,0.27)"/><circle cx="93.55%" cy="57.10%" r="0.39" fill="rgba(226,221,204,0.60)"/><circle cx="19.04%" cy="9.69%" r="0.28" fill="rgba(226,221,204,0.43)"/><circle cx="72.91%" cy="67.34%" r="0.18" fill="rgba(226,221,204,0.40)"/><circle cx="33.93%" cy="86.17%" r="0.21" fill="rgba(226,221,204,0.42)"/><circle cx="42.19%" cy="27.85%" r="0.43" fill="rgba(226,221,204,0.42)"/><circle cx="86.13%" cy="55.03%" r="0.55" fill="rgba(245,200,66,0.79)"/><circle cx="96.90%" cy="92.64%" r="0.20" fill="rgba(226,221,204,0.44)"/><circle cx="21.37%" cy="40.10%" r="0.30" fill="rgba(245,200,66,0.89)"/><circle cx="26.52%" cy="78.41%" r="0.28" fill="rgba(226,221,204,0.68)"/><circle cx="99.54%" cy="55.58%" r="0.20" fill="rgba(226,221,204,0.35)"/><circle cx="96.87%" cy="57.92%" r="0.37" fill="rgba(226,221,204,0.23)"/><circle cx="58.42%" cy="50.29%" r="0.20" fill="rgba(226,221,204,0.68)"/><circle cx="8.01%" cy="18.58%" r="0.35" fill="rgba(226,221,204,0.32)"/><circle cx="11.99%" cy="89.03%" r="0.33" fill="rgba(226,221,204,0.51)"/><circle cx="41.92%" cy="58.37%" r="0.43" fill="rgba(226,221,204,0.30)"/><circle cx="71.62%" cy="23.87%" r="0.35" fill="rgba(226,221,204,0.35)"/><circle cx="31.62%" cy="75.19%" r="0.33" fill="rgba(245,200,66,0.90)"/><circle cx="99.61%" cy="7.33%" r="0.23" fill="rgba(226,221,204,0.67)"/><circle cx="88.09%" cy="87.93%" r="0.20" fill="rgba(226,221,204,0.62)"/><circle cx="70.35%" cy="61.17%" r="0.35" fill="rgba(226,221,204,0.20)"/><circle cx="81.71%" cy="29.94%" r="0.43" fill="rgba(226,221,204,0.27)"/><circle cx="11.54%" cy="10.70%" r="0.23" fill="rgba(226,221,204,0.50)"/><circle cx="71.76%" cy="20.36%" r="0.23" fill="rgba(226,221,204,0.44)"/><circle cx="90.53%" cy="84.61%" r="0.32" fill="rgba(245,200,66,0.39)"/><circle cx="0.35%" cy="77.11%" r="0.23" fill="rgba(226,221,204,0.57)"/><circle cx="55.17%" cy="42.77%" r="0.18" fill="rgba(245,200,66,0.82)"/><circle cx="90.39%" cy="54.56%" r="0.32" fill="rgba(226,221,204,0.27)"/><circle cx="12.74%" cy="30.83%" r="0.39" fill="rgba(226,221,204,0.63)"/><circle cx="89.89%" cy="21.01%" r="0.18" fill="rgba(226,221,204,0.59)"/><circle cx="88.41%" cy="40.64%" r="0.20" fill="rgba(226,221,204,0.66)"/><circle cx="86.46%" cy="97.62%" r="0.41" fill="rgba(226,221,204,0.21)"/><circle cx="73.66%" cy="33.22%" r="0.39" fill="rgba(226,221,204,0.63)"/><circle cx="81.07%" cy="26.68%" r="0.18" fill="rgba(226,221,204,0.64)"/><circle cx="85.86%" cy="22.24%" r="0.29" fill="rgba(226,221,204,0.35)"/><circle cx="79.53%" cy="22.76%" r="0.23" fill="rgba(245,200,66,0.43)"/><circle cx="86.44%" cy="96.69%" r="0.34" fill="rgba(226,221,204,0.40)"/><circle cx="98.11%" cy="53.62%" r="0.18" fill="rgba(226,221,204,0.69)"/><circle cx="17.86%" cy="96.25%" r="0.18" fill="rgba(226,221,204,0.42)"/><circle cx="72.85%" cy="31.37%" r="0.30" fill="rgba(226,221,204,0.39)"/><circle cx="57.66%" cy="25.47%" r="0.15" fill="rgba(226,221,204,0.66)"/><circle cx="53.85%" cy="71.94%" r="0.35" fill="rgba(226,221,204,0.38)"/><circle cx="7.00%" cy="66.42%" r="0.24" fill="rgba(226,221,204,0.62)"/><circle cx="71.98%" cy="30.03%" r="0.27" fill="rgba(226,221,204,0.40)"/><circle cx="29.57%" cy="12.73%" r="0.43" fill="rgba(226,221,204,0.54)"/><circle cx="90.28%" cy="61.55%" r="0.31" fill="rgba(226,221,204,0.20)"/><circle cx="28.69%" cy="42.99%" r="0.35" fill="rgba(226,221,204,0.43)"/><circle cx="44.22%" cy="21.37%" r="0.42" fill="rgba(226,221,204,0.60)"/><circle cx="16.97%" cy="8.48%" r="0.34" fill="rgba(226,221,204,0.37)"/><circle cx="81.84%" cy="75.11%" r="0.22" fill="rgba(226,221,204,0.30)"/><circle cx="2.44%" cy="24.48%" r="0.40" fill="rgba(226,221,204,0.24)"/><circle cx="41.44%" cy="62.98%" r="0.36" fill="rgba(226,221,204,0.45)"/><circle cx="24.40%" cy="65.61%" r="0.45" fill="rgba(245,200,66,0.74)"/><circle cx="10.66%" cy="42.51%" r="0.44" fill="rgba(226,221,204,0.46)"/><circle cx="5.02%" cy="24.92%" r="0.29" fill="rgba(226,221,204,0.60)"/><circle cx="66.76%" cy="98.79%" r="0.44" fill="rgba(226,221,204,0.65)"/><circle cx="61.27%" cy="71.93%" r="0.40" fill="rgba(226,221,204,0.47)"/><circle cx="89.72%" cy="74.37%" r="0.23" fill="rgba(226,221,204,0.32)"/><circle cx="63.77%" cy="76.58%" r="0.34" fill="rgba(226,221,204,0.34)"/><circle cx="7.75%" cy="28.57%" r="0.25" fill="rgba(226,221,204,0.47)"/><circle cx="13.84%" cy="23.13%" r="0.36" fill="rgba(226,221,204,0.23)"/><circle cx="40.76%" cy="54.26%" r="0.21" fill="rgba(226,221,204,0.41)"/><circle cx="90.48%" cy="58.41%" r="0.41" fill="rgba(226,221,204,0.58)"/><circle cx="38.04%" cy="0.59%" r="0.38" fill="rgba(226,221,204,0.63)"/><circle cx="95.34%" cy="41.90%" r="0.31" fill="rgba(226,221,204,0.50)"/><circle cx="22.05%" cy="21.94%" r="0.16" fill="rgba(226,221,204,0.37)"/><circle cx="67.91%" cy="40.43%" r="0.29" fill="rgba(226,221,204,0.26)"/><circle cx="62.23%" cy="2.70%" r="0.32" fill="rgba(226,221,204,0.21)"/><circle cx="64.27%" cy="13.57%" r="0.17" fill="rgba(226,221,204,0.39)"/><circle cx="21.17%" cy="32.68%" r="0.26" fill="rgba(226,221,204,0.58)"/><circle cx="83.19%" cy="25.23%" r="0.16" fill="rgba(245,200,66,0.58)"/><circle cx="99.99%" cy="35.00%" r="0.38" fill="rgba(226,221,204,0.53)"/><circle cx="75.42%" cy="94.96%" r="0.16" fill="rgba(226,221,204,0.28)"/><circle cx="12.62%" cy="66.95%" r="0.22" fill="rgba(226,221,204,0.55)"/><circle cx="76.69%" cy="16.78%" r="0.37" fill="rgba(226,221,204,0.26)"/><circle cx="81.93%" cy="96.47%" r="0.16" fill="rgba(245,200,66,0.42)"/><circle cx="67.73%" cy="95.82%" r="0.36" fill="rgba(226,221,204,0.24)"/><circle cx="69.06%" cy="62.72%" r="0.46" fill="rgba(245,200,66,0.80)"/><circle cx="60.04%" cy="12.11%" r="0.38" fill="rgba(226,221,204,0.37)"/><circle cx="42.84%" cy="37.06%" r="0.25" fill="rgba(226,221,204,0.62)"/><circle cx="82.23%" cy="10.55%" r="0.34" fill="rgba(226,221,204,0.61)"/><circle cx="70.73%" cy="43.55%" r="0.44" fill="rgba(226,221,204,0.34)"/><circle cx="80.82%" cy="53.82%" r="0.28" fill="rgba(226,221,204,0.57)"/><circle cx="26.84%" cy="85.17%" r="0.18" fill="rgba(226,221,204,0.64)"/><circle cx="24.39%" cy="46.47%" r="0.26" fill="rgba(226,221,204,0.21)"/><circle cx="85.10%" cy="18.18%" r="0.39" fill="rgba(226,221,204,0.37)"/><circle cx="88.03%" cy="70.12%" r="0.15" fill="rgba(226,221,204,0.67)"/><circle cx="8.56%" cy="72.01%" r="0.38" fill="rgba(226,221,204,0.55)"/><circle cx="64.59%" cy="49.08%" r="0.18" fill="rgba(226,221,204,0.31)"/><circle cx="69.18%" cy="30.62%" r="0.29" fill="rgba(226,221,204,0.47)"/><circle cx="42.55%" cy="74.59%" r="0.36" fill="rgba(226,221,204,0.34)"/><circle cx="25.14%" cy="12.07%" r="0.19" fill="rgba(226,221,204,0.47)"/><circle cx="76.22%" cy="18.51%" r="0.30" fill="rgba(226,221,204,0.56)"/><circle cx="97.66%" cy="52.46%" r="0.18" fill="rgba(226,221,204,0.30)"/><circle cx="22.75%" cy="17.94%" r="0.36" fill="rgba(245,200,66,0.39)"/><circle cx="97.43%" cy="55.34%" r="0.19" fill="rgba(226,221,204,0.63)"/><circle cx="49.09%" cy="87.27%" r="0.29" fill="rgba(226,221,204,0.42)"/><circle cx="18.44%" cy="5.14%" r="0.29" fill="rgba(226,221,204,0.61)"/><circle cx="40.07%" cy="7.41%" r="0.17" fill="rgba(226,221,204,0.27)"/><circle cx="56.28%" cy="30.38%" r="0.19" fill="rgba(226,221,204,0.58)"/><circle cx="60.63%" cy="79.07%" r="0.31" fill="rgba(226,221,204,0.43)"/><circle cx="44.27%" cy="86.02%" r="0.24" fill="rgba(226,221,204,0.51)"/><circle cx="60.96%" cy="74.01%" r="0.21" fill="rgba(226,221,204,0.31)"/><circle cx="66.04%" cy="15.71%" r="0.17" fill="rgba(226,221,204,0.20)"/><circle cx="45.05%" cy="59.38%" r="0.22" fill="rgba(226,221,204,0.55)"/><circle cx="70.30%" cy="45.40%" r="0.43" fill="rgba(226,221,204,0.59)"/><circle cx="62.51%" cy="66.12%" r="0.28" fill="rgba(226,221,204,0.47)"/><circle cx="64.76%" cy="90.84%" r="0.17" fill="rgba(226,221,204,0.28)"/><circle cx="30.76%" cy="74.90%" r="0.24" fill="rgba(226,221,204,0.26)"/><circle cx="68.87%" cy="69.97%" r="0.30" fill="rgba(226,221,204,0.45)"/><circle cx="8.04%" cy="3.99%" r="0.25" fill="rgba(226,221,204,0.33)"/><circle cx="9.13%" cy="96.19%" r="0.32" fill="rgba(226,221,204,0.68)"/><circle cx="99.96%" cy="67.23%" r="0.16" fill="rgba(226,221,204,0.58)"/><circle cx="47.05%" cy="65.15%" r="0.20" fill="rgba(226,221,204,0.49)"/><circle cx="63.48%" cy="49.17%" r="0.29" fill="rgba(245,200,66,0.43)"/><circle cx="67.01%" cy="85.77%" r="0.36" fill="rgba(226,221,204,0.34)"/><circle cx="94.52%" cy="81.36%" r="0.29" fill="rgba(226,221,204,0.36)"/><circle cx="32.33%" cy="97.02%" r="0.30" fill="rgba(226,221,204,0.69)"/><circle cx="65.77%" cy="54.26%" r="0.21" fill="rgba(226,221,204,0.38)"/><circle cx="75.64%" cy="62.54%" r="0.21" fill="rgba(226,221,204,0.47)"/><circle cx="92.77%" cy="43.81%" r="0.19" fill="rgba(226,221,204,0.69)"/><circle cx="60.89%" cy="23.93%" r="0.32" fill="rgba(226,221,204,0.48)"/><circle cx="9.32%" cy="99.23%" r="0.29" fill="rgba(226,221,204,0.26)"/><circle cx="83.21%" cy="49.84%" r="0.30" fill="rgba(226,221,204,0.34)"/><circle cx="83.47%" cy="98.02%" r="0.32" fill="rgba(226,221,204,0.39)"/><circle cx="92.19%" cy="50.82%" r="0.41" fill="rgba(226,221,204,0.34)"/><circle cx="79.00%" cy="41.49%" r="0.30" fill="rgba(226,221,204,0.61)"/><circle cx="28.28%" cy="29.86%" r="0.45" fill="rgba(226,221,204,0.44)"/><circle cx="14.86%" cy="53.86%" r="0.32" fill="rgba(226,221,204,0.47)"/><circle cx="45.53%" cy="32.18%" r="0.36" fill="rgba(226,221,204,0.49)"/><circle cx="23.36%" cy="77.55%" r="0.45" fill="rgba(245,200,66,0.69)"/><circle cx="81.14%" cy="38.61%" r="0.40" fill="rgba(226,221,204,0.69)"/><circle cx="49.53%" cy="3.70%" r="0.33" fill="rgba(226,221,204,0.63)"/><circle cx="87.42%" cy="44.03%" r="0.29" fill="rgba(226,221,204,0.56)"/><circle cx="41.00%" cy="65.48%" r="0.29" fill="rgba(226,221,204,0.68)"/><circle cx="33.86%" cy="69.27%" r="0.41" fill="rgba(226,221,204,0.63)"/><circle cx="85.93%" cy="38.00%" r="0.37" fill="rgba(226,221,204,0.58)"/><circle cx="87.24%" cy="3.59%" r="0.40" fill="rgba(245,200,66,0.84)"/><circle cx="99.74%" cy="74.68%" r="0.18" fill="rgba(226,221,204,0.52)"/><circle cx="87.26%" cy="44.37%" r="0.42" fill="rgba(226,221,204,0.22)"/><circle cx="79.61%" cy="29.34%" r="0.19" fill="rgba(226,221,204,0.47)"/><circle cx="56.59%" cy="79.25%" r="0.17" fill="rgba(226,221,204,0.64)"/><circle cx="61.97%" cy="24.08%" r="0.19" fill="rgba(226,221,204,0.43)"/><circle cx="25.40%" cy="25.53%" r="0.47" fill="rgba(245,200,66,0.83)"/><circle cx="67.76%" cy="15.80%" r="0.25" fill="rgba(226,221,204,0.49)"/><circle cx="63.89%" cy="42.43%" r="0.40" fill="rgba(226,221,204,0.30)"/><circle cx="38.47%" cy="48.32%" r="0.32" fill="rgba(226,221,204,0.49)"/><circle cx="99.27%" cy="29.52%" r="0.35" fill="rgba(226,221,204,0.34)"/><circle cx="56.59%" cy="68.58%" r="0.16" fill="rgba(226,221,204,0.50)"/><circle cx="49.67%" cy="90.42%" r="0.39" fill="rgba(226,221,204,0.50)"/><circle cx="35.23%" cy="63.66%" r="0.35" fill="rgba(226,221,204,0.56)"/><circle cx="65.92%" cy="83.83%" r="0.42" fill="rgba(226,221,204,0.52)"/><circle cx="30.89%" cy="44.08%" r="0.37" fill="rgba(226,221,204,0.25)"/><circle cx="29.51%" cy="74.75%" r="0.19" fill="rgba(226,221,204,0.47)"/><circle cx="97.15%" cy="53.09%" r="0.40" fill="rgba(226,221,204,0.33)"/><circle cx="82.47%" cy="48.18%" r="0.37" fill="rgba(226,221,204,0.37)"/><circle cx="11.52%" cy="96.29%" r="0.54" fill="rgba(245,200,66,0.80)"/><circle cx="72.42%" cy="97.99%" r="0.39" fill="rgba(226,221,204,0.38)"/><circle cx="79.07%" cy="1.39%" r="0.29" fill="rgba(226,221,204,0.54)"/><circle cx="67.23%" cy="58.46%" r="0.43" fill="rgba(226,221,204,0.25)"/><circle cx="23.38%" cy="2.50%" r="0.32" fill="rgba(226,221,204,0.66)"/><circle cx="22.14%" cy="6.32%" r="0.42" fill="rgba(226,221,204,0.35)"/><circle cx="40.83%" cy="13.98%" r="0.24" fill="rgba(226,221,204,0.45)"/><circle cx="9.72%" cy="88.73%" r="0.33" fill="rgba(245,200,66,0.67)"/><circle cx="74.31%" cy="94.60%" r="0.37" fill="rgba(226,221,204,0.28)"/><circle cx="41.49%" cy="9.90%" r="0.27" fill="rgba(226,221,204,0.68)"/><circle cx="3.27%" cy="37.05%" r="0.44" fill="rgba(226,221,204,0.63)"/><circle cx="9.94%" cy="68.57%" r="0.44" fill="rgba(226,221,204,0.38)"/><circle cx="39.81%" cy="18.98%" r="0.49" fill="rgba(245,200,66,0.52)"/><circle cx="66.28%" cy="64.17%" r="0.16" fill="rgba(226,221,204,0.59)"/><circle cx="24.36%" cy="12.59%" r="0.17" fill="rgba(226,221,204,0.58)"/><circle cx="20.72%" cy="21.60%" r="0.25" fill="rgba(226,221,204,0.27)"/><circle cx="90.05%" cy="0.28%" r="0.19" fill="rgba(226,221,204,0.26)"/><circle cx="25.07%" cy="17.45%" r="0.16" fill="rgba(226,221,204,0.21)"/><circle cx="79.00%" cy="23.79%" r="0.20" fill="rgba(226,221,204,0.23)"/><circle cx="74.17%" cy="52.61%" r="0.29" fill="rgba(226,221,204,0.59)"/><circle cx="51.32%" cy="10.91%" r="0.43" fill="rgba(226,221,204,0.22)"/><circle cx="78.32%" cy="86.70%" r="0.29" fill="rgba(226,221,204,0.68)"/><circle cx="6.08%" cy="47.90%" r="0.36" fill="rgba(226,221,204,0.45)"/><circle cx="90.97%" cy="7.35%" r="0.39" fill="rgba(245,200,66,0.25)"/><circle cx="27.50%" cy="63.31%" r="0.25" fill="rgba(226,221,204,0.70)"/><circle cx="53.06%" cy="45.37%" r="0.18" fill="rgba(226,221,204,0.55)"/><circle cx="85.28%" cy="65.09%" r="0.37" fill="rgba(226,221,204,0.31)"/><circle cx="45.16%" cy="22.85%" r="0.29" fill="rgba(226,221,204,0.41)"/><circle cx="9.51%" cy="42.68%" r="0.26" fill="rgba(226,221,204,0.28)"/><circle cx="92.30%" cy="6.71%" r="0.18" fill="rgba(226,221,204,0.25)"/><circle cx="73.88%" cy="81.18%" r="0.33" fill="rgba(226,221,204,0.48)"/>
+</svg>
+
+  <div class="relative z-10 max-w-5xl text-center space-y-8">
+    <span class="font-label text-primary-container tracking-[0.3em] uppercase text-xs block mb-4">Inteligencia de Seguridad Autónoma</span>
+    <h1 class="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter leading-[0.9] text-white">
+      Tu primer CISO no es <br/>una persona. Es <span class="text-primary-container">Luke.</span>
+    </h1>
+    <p class="max-w-2xl mx-auto text-xl md:text-2xl font-body font-light text-on-surface-variant leading-relaxed">
+      Sabés que tenés riesgos. No sabés cuáles. Luke los detecta, los prioriza y te dice exactamente cómo resolverlos sin equipo de seguridad.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
+      <a href="#problema" class="w-full sm:w-auto bg-primary-container text-[#3d2e00] px-10 py-5 font-headline font-extrabold uppercase tracking-tight text-lg hover:bg-yellow-300 transition-all active:scale-95 inline-block text-center">
+        Conocé más
+      </a>
+    </div>
+  </div>
+
+  <div class="absolute bottom-10 w-full max-w-6xl px-6 flex justify-between opacity-25">
+    <div class="font-label text-[10px] tracking-widest uppercase flex items-center gap-2">
+      <svg width="8" height="8" viewBox="0 0 24 24" fill="#f5c842"><path d="M12 2C12 2 13.2 9 14.8 10.2C16.4 11.4 22 12 22 12C22 12 16.4 12.6 14.8 13.8C13.2 15 12 22 12 22C12 22 10.8 15 9.2 13.8C7.6 12.6 2 12 2 12C2 12 7.6 11.4 9.2 10.2C10.8 9 12 2 12 2Z"/></svg>
+      Iluminar
+    </div>
+    <div class="font-label text-[10px] tracking-widest uppercase flex items-center gap-2">
+      <svg width="8" height="8" viewBox="0 0 24 24" fill="#f5c842"><path d="M12 2C12 2 13.2 9 14.8 10.2C16.4 11.4 22 12 22 12C22 12 16.4 12.6 14.8 13.8C13.2 15 12 22 12 22C12 22 10.8 15 9.2 13.8C7.6 12.6 2 12 2 12C2 12 7.6 11.4 9.2 10.2C10.8 9 12 2 12 2Z"/></svg>
+      Proteger
+    </div>
+    <div class="font-label text-[10px] tracking-widest uppercase flex items-center gap-2">
+      <svg width="8" height="8" viewBox="0 0 24 24" fill="#f5c842"><path d="M12 2C12 2 13.2 9 14.8 10.2C16.4 11.4 22 12 22 12C22 12 16.4 12.6 14.8 13.8C13.2 15 12 22 12 22C12 22 10.8 15 9.2 13.8C7.6 12.6 2 12 2 12C2 12 7.6 11.4 9.2 10.2C10.8 9 12 2 12 2Z"/></svg>
+      Crecer
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEMA -->
+<section class="py-32 px-12 bg-[#0e0e0e]" id="problema">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-4xl md:text-6xl font-headline font-bold tracking-tighter mb-20 text-white">Estás tomando decisiones a ciegas.</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-px bg-white/5">
+      <div class="bg-[#0e0e0e] p-10 space-y-4">
+        <div class="text-5xl font-headline font-black text-primary-container tracking-tighter">$3.3M</div>
+        <p class="font-body text-sm text-on-surface-variant uppercase tracking-wider font-semibold leading-snug">Costo promedio de filtración de datos en PYMEs</p>
+      </div>
+      <div class="bg-[#0e0e0e] p-10 space-y-4 border-l border-white/5">
+        <div class="text-5xl font-headline font-black text-primary-container tracking-tighter">197</div>
+        <p class="font-body text-sm text-on-surface-variant uppercase tracking-wider font-semibold leading-snug">Días promedio sin detectar una brecha activa</p>
+      </div>
+      <div class="bg-[#0e0e0e] p-10 space-y-4 border-l border-white/5">
+        <div class="text-5xl font-headline font-black text-primary-container tracking-tighter">$300K+</div>
+        <p class="font-body text-sm text-on-surface-variant uppercase tracking-wider font-semibold leading-snug">Costo anual de un CISO senior en USA</p>
+      </div>
+      <div class="bg-[#0e0e0e] p-10 space-y-4 border-l border-white/5">
+        <div class="text-5xl font-headline font-black text-primary-container tracking-tighter">3.5M</div>
+        <p class="font-body text-sm text-on-surface-variant uppercase tracking-wider font-semibold leading-snug">Puestos de ciberseguridad sin cubrir globalmente</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUCIÓN -->
+<section class="py-32 px-12 bg-surface" id="soluciones">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-20">
+    <div class="md:w-1/3 sticky top-32 h-fit">
+      <h2 class="text-5xl md:text-6xl font-headline font-bold tracking-tighter leading-tight text-white mb-8">Luke no asiste a un equipo. <span class="text-primary-container">Luke lo es.</span></h2>
+      <p class="text-lg text-on-surface-variant font-body mb-10">Inteligencia de Seguridad Autónoma — una categoría nueva. No una herramienta más.</p>
+    </div>
+    <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8">
+      <div class="bg-[#1c1b1b] p-12 border border-white/5 hover:border-primary-container/30 transition-all">
+        <span class="font-label text-primary-container text-xs tracking-widest block mb-12">01 — COMPLIANCE</span>
+        <h3 class="text-3xl font-headline font-bold text-white mb-6">Auditoría Continua</h3>
+        <p class="text-on-surface-variant leading-relaxed">ISO 27001, SOC 2, GDPR, NIST. Documentación lista para auditoría generada automáticamente. Luke sabe qué falta, qué hay que hacer, y lo hace.</p>
+      </div>
+      <div class="bg-[#1c1b1b] p-12 border border-white/5 hover:border-primary-container/30 transition-all">
+        <span class="font-label text-primary-container text-xs tracking-widest block mb-12">02 — GOVERNANCE</span>
+        <h3 class="text-3xl font-headline font-bold text-white mb-6">Políticas Dinámicas</h3>
+        <p class="text-on-surface-variant leading-relaxed">Políticas actualizadas, inventario de activos en tiempo real, frameworks de riesgo continuos. La gobernanza que un CISO senior mantendría sin necesitar uno.</p>
+      </div>
+      <div class="bg-[#1c1b1b] p-12 border border-white/5 hover:border-primary-container/30 transition-all">
+        <span class="font-label text-primary-container text-xs tracking-widest block mb-12">03 — RISK</span>
+        <h3 class="text-3xl font-headline font-bold text-white mb-6">Priorización Algorítmica</h3>
+        <p class="text-on-surface-variant leading-relaxed">Olvidate de listas infinitas de vulnerabilidades. Luke te dice cuál arreglar primero para salvar tu negocio.</p>
+      </div>
+      <div class="bg-[#1c1b1b] p-12 border border-white/5 hover:border-primary-container/30 transition-all">
+        <span class="font-label text-primary-container text-xs tracking-widest block mb-12">04 — REPORTING</span>
+        <h3 class="text-3xl font-headline font-bold text-white mb-6">Visibilidad Ejecutiva</h3>
+        <p class="text-on-surface-variant leading-relaxed">Reportes claros para inversores, clientes y partners. El valor de tu seguridad en un solo número.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="py-32 px-12 bg-[#0e0e0e]">
+  <div class="max-w-7xl mx-auto text-center mb-16">
+    <h2 class="text-4xl md:text-5xl font-headline font-bold tracking-tighter text-white">Esto es lo que ve un CTO 48 horas después de conectar Luke.</h2>
+  </div>
+  <div class="max-w-6xl mx-auto bg-[#131313] border border-white/10 shadow-2xl rounded-lg overflow-hidden flex flex-col md:flex-row h-auto md:h-[600px]">
+    <div class="w-full md:w-20 bg-[#0e0e0e] border-r border-white/5 flex md:flex-col items-center py-6 gap-8">
+      <div class="flex items-center gap-1 text-primary-container font-black text-xl mb-4">
+        L
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="#f5c842"><path d="M12 2C12 2 13.2 9 14.8 10.2C16.4 11.4 22 12 22 12C22 12 16.4 12.6 14.8 13.8C13.2 15 12 22 12 22C12 22 10.8 15 9.2 13.8C7.6 12.6 2 12 2 12C2 12 7.6 11.4 9.2 10.2C10.8 9 12 2 12 2Z"/></svg>
+      </div>
+      <svg class="w-5 h-5 fill-current text-primary-container" viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+      <svg class="w-5 h-5 fill-current text-white/30" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+      <svg class="w-5 h-5 fill-current text-white/30" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+      <svg class="w-5 h-5 fill-current text-white/30 mt-auto mb-4" viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg>
+    </div>
+    <div class="flex-1 p-8 md:p-12 space-y-12 overflow-y-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="space-y-2">
+          <p class="font-label text-[10px] uppercase text-white/30 tracking-widest">Puntaje de Seguridad</p>
+          <div class="text-6xl font-headline font-black text-primary-container">72<span class="text-xl text-white/30">/100</span></div>
+        </div>
+        <div class="space-y-2">
+          <p class="font-label text-[10px] uppercase text-white/30 tracking-widest">Preparación SOC 2</p>
+          <div class="text-6xl font-headline font-black text-white">65%</div>
+        </div>
+        <div class="space-y-2">
+          <p class="font-label text-[10px] uppercase text-white/30 tracking-widest">Exposición al Riesgo</p>
+          <div class="text-4xl font-headline font-black text-[#E24B4A]">$180,000</div>
+        </div>
+      </div>
+      <div class="space-y-6">
+        <div class="flex justify-between items-center pb-2 border-b border-white/5">
+          <p class="font-headline font-bold uppercase tracking-tight text-white text-sm">Prioridades de Riesgo</p>
+          <span class="font-label text-[10px] uppercase text-white/30">Última actualización: hace 5m</span>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center gap-6 p-4 bg-[#1c1b1b] border-l-4 border-[#E24B4A]">
+            <div class="w-3 h-3 rounded-full bg-[#E24B4A] flex-shrink-0"></div>
+            <div class="flex-1">
+              <h4 class="font-headline font-bold text-white text-sm">Crítico: MFA No Habilitado en IAM</h4>
+              <p class="text-xs text-on-surface-variant mt-1">3 usuarios administradores vulnerables detectados.</p>
+            </div>
+            <button class="bg-[#131313] border border-white/10 text-[10px] font-label px-3 py-1 uppercase hover:bg-primary-container hover:text-[#3d2e00] hover:border-primary-container transition-all flex-shrink-0">Resolver</button>
+          </div>
+          <div class="flex items-center gap-6 p-4 bg-[#1c1b1b] border-l-4 border-[#BA7517]">
+            <div class="w-3 h-3 rounded-full bg-[#BA7517] flex-shrink-0"></div>
+            <div class="flex-1">
+              <h4 class="font-headline font-bold text-white text-sm">Alto: Sin Backups en Cloud SQL</h4>
+              <p class="text-xs text-on-surface-variant mt-1">Base de datos de producción sin política de respaldo activa.</p>
+            </div>
+            <button class="bg-[#131313] border border-white/10 text-[10px] font-label px-3 py-1 uppercase flex-shrink-0">Revisar</button>
+          </div>
+          <div class="flex items-center gap-6 p-4 bg-[#1c1b1b] border-l-4 border-[#1D9E75]">
+            <div class="w-3 h-3 rounded-full bg-[#1D9E75] flex-shrink-0"></div>
+            <div class="flex-1">
+              <h4 class="font-headline font-bold text-white text-sm">Auditado: Logging OK en Infraestructura</h4>
+              <p class="text-xs text-on-surface-variant mt-1">CloudTrail y Logging centralizado operando según norma.</p>
+            </div>
+            <span class="text-[10px] font-label text-[#1D9E75] uppercase flex-shrink-0">Completado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ LUKE / COMPETENCIA -->
+<section class="py-32 px-12 bg-surface" id="competencia">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-4 flex items-center gap-3">
+      <div class="w-10 h-px bg-primary-container"></div>
+      <span class="font-label text-primary-container text-[10px] tracking-widest uppercase">Por qué Luke</span>
+    </div>
+    <h2 class="text-4xl md:text-6xl font-headline font-bold tracking-tighter text-white mb-6">Las herramientas generan datos.<br/>Luke genera decisiones.</h2>
+    <p class="text-on-surface-variant mb-20 max-w-xl">Ningún competidor combina autonomía real, UX no técnica y gobernanza + compliance + risk en una sola plataforma.</p>
+    <div class="w-full">
+      <div class="grid grid-cols-5 pb-4 border-b border-white/10">
+        <div class="font-label text-[10px] uppercase text-white/30 tracking-widest">Solución</div>
+        <div class="font-label text-[10px] uppercase text-white/30 tracking-widest text-center">Autónomo</div>
+        <div class="font-label text-[10px] uppercase text-white/30 tracking-widest text-center">UX No Técnica</div>
+        <div class="font-label text-[10px] uppercase text-white/30 tracking-widest text-center">Gov + Compliance + Risk</div>
+        <div class="font-label text-[10px] uppercase text-white/30 tracking-widest text-center">Para PYMEs</div>
+      </div>
+      <div class="grid grid-cols-5 py-6 border-b border-primary-container/20 bg-primary-container/5">
+        <div class="font-headline font-bold text-primary-container text-sm flex items-center gap-2">
+          Luke
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="#f5c842"><path d="M12 2C12 2 13.2 9 14.8 10.2C16.4 11.4 22 12 22 12C22 12 16.4 12.6 14.8 13.8C13.2 15 12 22 12 22C12 22 10.8 15 9.2 13.8C7.6 12.6 2 12 2 12C2 12 7.6 11.4 9.2 10.2C10.8 9 12 2 12 2Z"/></svg>
+        </div>
+        <div class="text-center text-primary-container text-lg">✓</div>
+        <div class="text-center text-primary-container text-lg">✓</div>
+        <div class="text-center text-primary-container text-lg">✓</div>
+        <div class="text-center text-primary-container text-lg">✓</div>
+      </div>
+      <div class="grid grid-cols-5 py-6 border-b border-white/5">
+        <div class="font-body text-white text-sm">Cynomi</div>
+        <div class="text-center text-white/20 text-sm">~</div>
+        <div class="text-center text-white/20 text-sm">~</div>
+        <div class="text-center text-white/20 text-sm">✗</div>
+        <div class="text-center text-white/20 text-sm">~</div>
+      </div>
+      <div class="grid grid-cols-5 py-6 border-b border-white/5">
+        <div class="font-body text-white text-sm">Enveedo</div>
+        <div class="text-center text-white/20 text-sm">✗</div>
+        <div class="text-center text-white/20 text-sm">~</div>
+        <div class="text-center text-white/20 text-sm">~</div>
+        <div class="text-center text-white/60 text-sm">✓</div>
+      </div>
+      <div class="grid grid-cols-5 py-6 border-b border-white/5">
+        <div class="font-body text-white text-sm">Vanta / Drata</div>
+        <div class="text-center text-white/20 text-sm">✗</div>
+        <div class="text-center text-white/60 text-sm">✓</div>
+        <div class="text-center text-white/20 text-sm">✗</div>
+        <div class="text-center text-white/60 text-sm">✓</div>
+      </div>
+      <div class="grid grid-cols-5 py-6 border-b border-white/5">
+        <div class="font-body text-white text-sm">Guardz</div>
+        <div class="text-center text-white/20 text-sm">✗</div>
+        <div class="text-center text-white/20 text-sm">~</div>
+        <div class="text-center text-white/20 text-sm">✗</div>
+        <div class="text-center text-white/60 text-sm">✓</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MERCADO -->
+<section class="py-32 px-12 bg-[#0e0e0e]" id="mercado">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-4 flex items-center gap-3">
+      <div class="w-10 h-px bg-primary-container"></div>
+      <span class="font-label text-primary-container text-[10px] tracking-widest uppercase">Mercado</span>
+    </div>
+    <h2 class="text-5xl md:text-7xl font-headline font-bold tracking-tighter leading-tight text-white mb-24">Un mercado de $10B+<br/>que todavía no tiene dueño.</h2>
+    <div class="flex flex-col divide-y divide-white/5">
+      <div class="py-16 flex flex-col items-center text-center border-t border-white/5">
+        <p class="font-label text-[10px] uppercase text-white/30 tracking-widest mb-6">TAM</p>
+        <div class="font-headline font-black tracking-tighter leading-none" style="font-size: clamp(80px, 12vw, 140px);">
+          <span class="text-white">$200</span><span class="text-primary-container">B</span>
+        </div>
+        <p class="text-on-surface-variant mt-4 text-sm">Ciberseguridad global · 15% CAGR</p>
+      </div>
+      <div class="py-16 flex flex-col items-center text-center">
+        <p class="font-label text-[10px] uppercase text-white/30 tracking-widest mb-6">SAM</p>
+        <div class="font-headline font-black tracking-tighter leading-none" style="font-size: clamp(80px, 12vw, 140px);">
+          <span class="text-white">$45</span><span class="text-primary-container">B</span>
+        </div>
+        <p class="text-on-surface-variant mt-4 text-sm">Seguridad PYME global</p>
+      </div>
+      <div class="py-16 flex flex-col items-center text-center">
+        <p class="font-label text-[10px] uppercase text-white/30 tracking-widest mb-6">VCISO MARKET 2028</p>
+        <div class="font-headline font-black tracking-tighter leading-none" style="font-size: clamp(80px, 12vw, 140px);">
+          <span class="text-white">$10</span><span class="text-primary-container">B+</span>
+        </div>
+        <p class="text-on-surface-variant mt-4 text-sm">El segmento de mayor crecimiento</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="py-32 px-12 bg-surface" id="equipo">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-4 flex items-center gap-3">
+      <div class="w-10 h-px bg-primary-container"></div>
+      <span class="font-label text-primary-container text-[10px] tracking-widest uppercase">El Equipo</span>
+    </div>
+    <h2 class="text-5xl font-headline font-bold tracking-tighter text-white mb-8">Producto + expertise real.</h2>
+    <p class="text-on-surface-variant mb-16 max-w-xl text-lg">No teoría. No consultoría. Decisiones basadas en experiencia real de CISO, convertidas en inteligencia que escala.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="space-y-6">
+        <div class="aspect-[4/5] bg-[#1c1b1b] flex items-center justify-center border border-white/5">
+          <span class="font-headline font-black text-8xl text-primary-container opacity-20">I</span>
+        </div>
+        <div>
+          <h4 class="font-headline font-bold text-2xl text-white">Ignacio</h4>
+          <p class="font-label text-xs uppercase text-primary-container tracking-widest mt-1">Producto & Estrategia</p>
+          <p class="text-on-surface-variant text-sm mt-3 leading-relaxed">Define la visión y dirección del producto. Traduce la expertise de seguridad en una experiencia que cualquier founder puede usar sin ser técnico.</p>
+        </div>
+      </div>
+      <div class="space-y-6">
+        <div class="aspect-[4/5] bg-[#1c1b1b] flex items-center justify-center border border-white/5">
+          <span class="font-headline font-black text-8xl text-primary-container opacity-20">N</span>
+        </div>
+        <div>
+          <h4 class="font-headline font-bold text-2xl text-white">Nicolás</h4>
+          <p class="font-label text-xs uppercase text-primary-container tracking-widest mt-1">Engineering Lead</p>
+          <p class="text-on-surface-variant text-sm mt-3 leading-relaxed">Lidera la arquitectura técnica y el desarrollo de la plataforma. Responsable del stack de IA y la infraestructura que hace posible la autonomía de Luke.</p>
+        </div>
+      </div>
+      <div class="space-y-6">
+        <div class="aspect-[4/5] bg-[#1c1b1b] flex items-center justify-center border border-white/5">
+          <span class="font-headline font-black text-8xl text-primary-container opacity-20">C</span>
+        </div>
+        <div>
+          <h4 class="font-headline font-bold text-2xl text-white">CISO / CSO</h4>
+          <p class="font-label text-xs uppercase text-primary-container tracking-widest mt-1">Seguridad & Metodología</p>
+          <p class="text-on-surface-variant text-sm mt-3 leading-relaxed">20+ años como CISO en organizaciones complejas. Su metodología IP es el núcleo irreplicable del sistema — experiencia de decisión real codificada en Luke.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="py-48 px-12 bg-primary-container text-[#3d2e00]" id="contacto">
+  <div class="max-w-5xl mx-auto text-center space-y-12">
+    <h2 class="text-6xl md:text-8xl font-headline font-extrabold tracking-tighter leading-none">Hablemos.</h2>
+    <p class="text-xl md:text-2xl font-body max-w-2xl mx-auto text-[#3d2e00]/80">
+      Cada día sin visibilidad es un riesgo que no podés medir. Empezá a verlos hoy.
+    </p>
+    <div class="pt-12">
+      <button class="bg-[#3d2e00] text-primary-container px-12 py-6 font-headline font-extrabold uppercase tracking-tight text-xl hover:bg-[#241a00] transition-all">
+        Contactar al equipo
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="w-full py-16 px-12 flex flex-col md:flex-row justify-between items-center gap-8 bg-[#0E0E0E] border-t border-white/5">
+  <div class="flex items-center gap-2.5 text-2xl font-headline font-extrabold tracking-tighter text-primary-container uppercase">
+    LUKE
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#f5c842"><path d="M12 2C12 2 13.2 9 14.8 10.2C16.4 11.4 22 12 22 12C22 12 16.4 12.6 14.8 13.8C13.2 15 12 22 12 22C12 22 10.8 15 9.2 13.8C7.6 12.6 2 12 2 12C2 12 7.6 11.4 9.2 10.2C10.8 9 12 2 12 2Z"/></svg>
+  </div>
+  <div class="font-label text-xs tracking-[0.15em] uppercase text-white/30 text-center">
+    Inteligencia de Seguridad Autónoma · Pre-Seed 2026
+  </div>
+  <div class="flex gap-10">
+    <a class="text-white/30 hover:text-white transition-all font-label text-xs tracking-widest uppercase" href="#">LinkedIn</a>
+    <a class="text-white/30 hover:text-white transition-all font-label text-xs tracking-widest uppercase" href="#"><span class="__cf_email__" data-cfemail="94fdfae2f1e7e0fbe6e
+
+</body>
+</html>
